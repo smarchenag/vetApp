@@ -1,5 +1,6 @@
 package com.vet.vetApp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,6 +15,7 @@ public class Mascota {
     private String raza;
 
     @ManyToOne(targetEntity = Usuario.class)
+    @JsonBackReference
     private Usuario usuarioAmo;
 
     public Mascota(Long id, String nombre, int edad, String raza, Usuario usuarioAmo) {

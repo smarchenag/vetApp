@@ -27,6 +27,9 @@ public class IUsuarioServiceImpl implements IUsuarioService{
 
     @Override
     public Usuario saveUsuario(Usuario usuario) {
+        if (usuario.getMascotas() != null){
+            usuario.getMascotas().iterator().forEachRemaining(mascota -> mascota.setUsuarioAmo(usuario));
+        }
         return usuarioRepository.save(usuario);
     }
 }

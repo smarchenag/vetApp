@@ -1,7 +1,10 @@
 package com.vet.vetApp.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,7 +18,8 @@ public class Usuario {
     private String email;
     private String password;
 
-    @OneToMany(mappedBy = "usuarioAmo", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "usuarioAmo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Mascota> mascotas;
 
     public Usuario(Long id, String nombre, String email, String password, List<Mascota> mascotas) {
@@ -78,5 +82,13 @@ public class Usuario {
                 ", password='" + password + '\'' +
                 ", mascotas=" + mascotas +
                 '}';
+    }
+
+    public void addMascota(Mascota mascota) {
+        if (mascotas == null){
+            mascotas = new ArrayList<>();
+        }
+        mascotas.add(mascota);
+        mascota.setUsuarioAmo(this);
     }
 }
