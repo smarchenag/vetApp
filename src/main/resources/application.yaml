@@ -1,0 +1,15 @@
+#spring.application.name=vetApp
+spring:
+  application:
+    name: vetApp
+  datasource:
+    url: jdbc:mysql://localhost:3307/vet_app_db
+    username: root
+    password: 2222
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 9000
