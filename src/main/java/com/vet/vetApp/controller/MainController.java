@@ -45,4 +45,9 @@ public class MainController {
         usuarioFromDB.addMascota(mascota);
         return ResponseEntity.ok(mascotaService.saveMascota(mascota));
     }
+
+    @DeleteMapping("/pets/{id}")
+    public ResponseEntity<Mascota> eliminarMascota (@PathVariable Long id){
+        return ResponseEntity.ok(mascotaService.deleteMascota(id));
+    }
 }

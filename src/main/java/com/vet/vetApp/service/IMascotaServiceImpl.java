@@ -23,4 +23,11 @@ public class IMascotaServiceImpl implements IMascotaService{
     public Mascota saveMascota(Mascota mascota) {
         return mr.save(mascota);
     }
+
+    @Override
+    public Mascota deleteMascota(Long id) {
+        Mascota mascotaFromDB = mr.findById(id).orElseThrow();
+        mr.delete(mascotaFromDB);
+        return mascotaFromDB;
+    }
 }

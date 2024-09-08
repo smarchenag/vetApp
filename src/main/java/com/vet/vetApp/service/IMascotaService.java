@@ -10,4 +10,6 @@ public interface IMascotaService {
     List<Mascota> buscarUsuarioPorId(Usuario usuario);
 
     Mascota saveMascota(Mascota mascota);
+
+    Mascota deleteMascota(Long id);
 }
