@@ -32,4 +32,11 @@ public class IUsuarioServiceImpl implements IUsuarioService{
         }
         return usuarioRepository.save(usuario);
     }
+
+    @Override
+    public Usuario deleteUsuario(Long id) {
+        Usuario userDB = getUSuario(id);
+        usuarioRepository.deleteById(id);
+        return userDB;
+    }
 }

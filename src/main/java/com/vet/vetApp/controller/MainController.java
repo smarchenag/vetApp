@@ -33,6 +33,11 @@ public class MainController {
         return ResponseEntity.ok(usuarioService.saveUsuario(usuario));
     }
 
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<Usuario> deleteUsuario(@PathVariable Long id){
+        return ResponseEntity.ok(usuarioService.deleteUsuario(id));
+    }
+
     @GetMapping("/pets/{id}")
     public ResponseEntity<List<Mascota>> verMascotasUsuario(@PathVariable Long id) {
         Usuario usuarioFromDB = usuarioService.getUSuario(id);

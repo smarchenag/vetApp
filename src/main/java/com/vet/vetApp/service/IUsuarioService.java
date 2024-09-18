@@ -12,5 +12,7 @@ public interface IUsuarioService {
 
     Usuario saveUsuario(Usuario usuario);
 
+    Usuario deleteUsuario(Long id);
+
 
 }
